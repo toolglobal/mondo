@@ -1,7 +1,7 @@
 ## 下载程序
 ```
-链核心：https://olo.ibdt.tech/docs/blockchain.tgz
-API(不含历史交易记录)：https://olo.ibdt.tech/docs/api_little.tgz 40MB
+链核心：https://olo.ibdt.tech/static/blockchain.tgz
+API(不含历史交易记录)：https://olo.ibdt.tech/static/api_little.tgz 40MB
 ```
 
 ## 全新部署
