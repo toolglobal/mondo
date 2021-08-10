@@ -4,6 +4,10 @@
 - `https://eth.wiki/json-rpc/API`
 - `https://etclabscore.github.io/core-geth/JSON-RPC-API/modules/personal`
 
+## 重要说明
+- Mondo原生代币OLO是`8`位小数，为了兼容web3 provider，在web3 provider JSON RPC中交互的OLO均采用`18`位小数，后`10`位小数会被默认舍弃
+- gasPrice：JSON RPC中gasprice建议为`1000GWEI`，小于此价格无法交易
+
 ## 交易类型支持
 只支持ethereum的LegacyTxType类型交易，不支持AccessListTxType和DynamicFeeTxType类型交易。
 
