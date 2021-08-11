@@ -4,10 +4,6 @@
 - `https://eth.wiki/json-rpc/API`
 - `https://etclabscore.github.io/core-geth/JSON-RPC-API/modules/personal`
 
-## 重要说明
-- Mondo原生代币OLO是`8`位小数，为了兼容web3 provider，在web3 provider JSON RPC中交互的OLO均采用`18`位小数，后`10`位小数会被默认舍弃
-- gasPrice：JSON RPC中gasprice建议为`1000GWEI`，小于此价格无法交易
-
 ## 交易类型支持
 只支持ethereum的LegacyTxType类型交易，不支持AccessListTxType和DynamicFeeTxType类型交易。
 
@@ -187,7 +183,7 @@ curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data  '{
 ```
 
 - net_peerCount
-返回的数据是mock的，并非真实的P2P连接数
+  返回的数据是mock的，并非真实的P2P连接数
 ```
 curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'
 
@@ -310,76 +306,79 @@ curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data  '{
 
 - eth_signTransaction
 ```
-curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{
->     "id": 1,
->     "jsonrpc": "2.0",
->     "method": "eth_signTransaction",
->     "params": [{
-> "nonce":"0x1",
->         "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
->         "from": "0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f",
->         "gas": "0x76c0",
->         "gasPrice": "0x9184e72a000",
->         "to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
->         "value": "0x9184e72a"
->     }]
-> }'
+curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"id":1,"jsonrpc":"2.0","method":"eth_signTransaction","params":[{"nonce":"0x9323","data":"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","from":"0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f","gas":"0x76c0","gasPrice":"0xE8D4A51000","to":"0xd46e8dd67c5d32be8058bb8eb970870f07244567","value":"0x2540BE400"}]}'
+
+tx details:
+{
+	"id": 1,
+	"jsonrpc": "2.0",
+	"method": "eth_signTransaction",
+	"params": [{
+		"nonce": "0x9323",
+		"data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+		"from": "0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f",
+		"gas": "0x76c0",
+		"gasPrice": "0xE8D4A51000",
+		"to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
+		"value": "0x2540BE400"
+	}]
+}
 
 {
 	"jsonrpc": "2.0",
 	"id": 1,
 	"result": {
-		"raw": "0xf892018609184e72a0008276c094d46e8dd67c5d32be8058bb8eb970870f07244567849184e72aa9d46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f07244567526a023d8442c12bf242a438ebb5b50b59fe410e55a114804538c813a26a1184bd077a0165dea325dadbbb3c4c25962c7c3636258040912da966da69ad680255824e55c",
+		"raw": "0xf89682932385e8d4a510008276c094d46e8dd67c5d32be8058bb8eb970870f072445678502540be400a9d46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675820327a0b306cc4e6583e0e92e849339ea0c90f853d05eae2a80ac3f86e83e2e9d286355a07c9eff93975bcdb683144a274ecf57a541f903df3a98c0b5c965286b826895cd",
 		"tx": {
 			"type": "0x0",
-			"nonce": "0x1",
-			"gasPrice": "0x9184e72a000",
+			"nonce": "0x9323",
+			"gasPrice": "0xe8d4a51000",
+			"maxPriorityFeePerGas": null,
+			"maxFeePerGas": null,
 			"gas": "0x76c0",
-			"value": "0x9184e72a",
+			"value": "0x2540be400",
 			"input": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
-			"v": "0x26",
-			"r": "0x23d8442c12bf242a438ebb5b50b59fe410e55a114804538c813a26a1184bd077",
-			"s": "0x165dea325dadbbb3c4c25962c7c3636258040912da966da69ad680255824e55c",
+			"v": "0x327",
+			"r": "0xb306cc4e6583e0e92e849339ea0c90f853d05eae2a80ac3f86e83e2e9d286355",
+			"s": "0x7c9eff93975bcdb683144a274ecf57a541f903df3a98c0b5c965286b826895cd",
 			"to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
-			"hash": "0xd64d316e8123c331bfc05a225f49fcf1edb5101bfe18f6883903b2ead06b9aca"
+			"hash": "0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e"
 		}
 	}
 }
 ```
 
-- eth_sendTransaction
-```
-curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f","to":"0xd46e8dd67c5d32be8058bb8eb970870f07244567","gas":"0x76c0","gasPrice":"0x1","value":"0x1","data":"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"}],"id":1}'
-
-{"jsonrpc":"2.0","id":1,"result":"0x8689082200f59f70541705cd7ffd8bf025776811f3b7fcc8ef476966930b6f20"}
-```
-
 - eth_sendRawTransaction
 ```
-curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data  '{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf892018609184e72a0008276c094d46e8dd67c5d32be8058bb8eb970870f07244567849184e72aa9d46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f07244567526a023d8442c12bf242a438ebb5b50b59fe410e55a114804538c813a26a1184bd077a0165dea325dadbbb3c4c25962c7c3636258040912da966da69ad680255824e55c"],"id":1}'
+curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data  '{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf89682932385e8d4a510008276c094d46e8dd67c5d32be8058bb8eb970870f072445678502540be400a9d46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675820327a0b306cc4e6583e0e92e849339ea0c90f853d05eae2a80ac3f86e83e2e9d286355a07c9eff93975bcdb683144a274ecf57a541f903df3a98c0b5c965286b826895cd"],"id":1}'
 
-{"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"check tx logs: insufficient balance"}}
+{"jsonrpc":"2.0","id":1,"result":"0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e"}
+```
+
+- eth_sendTransaction
+```
+curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f","to":"0xd46e8dd67c5d32be8058bb8eb970870f07244567","gas":"0x76c0","gasPrice":"0xE8D4A51000","value":"0xDE0B6B3A7640000","data":"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"}],"id":1}'
+{"jsonrpc":"2.0","id":1,"result":"0x8689082200f59f70541705cd7ffd8bf025776811f3b7fcc8ef476966930b6f20"}
 ```
 
 - eth_call
 ```
- curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"data":"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","from":"0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f","gas":"0x76c0","gasPrice":"0x1","to":"0xd46e8dd67c5d32be8058bb8eb970870f07244567","value":"0x2"},"latest"],"id":1}'
+curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"data":"0x70a082310000000000000000000000000f508f143e77b39f8e20dd9d2c1e515f0f527d9f","from":"0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f","gas":"0x76c0","gasPrice":"0x1","to":"0x67EbBA731DCd5b763F5699650920a637eDbBEb93","value":"0x0"},"latest"],"id":1}'
 
-{"jsonrpc":"2.0","id":1,"result":"0x"}
+{"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000003da53a727a597c3"}
 ```
 
 - eth_estimateGas
 ```
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f", "to":"0x3b7252d007059ffc82d16d022da3cbf9992d2f70", "value":"0x1"}],"id":1}'
- -H "Content-Type: application/json" http://localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{"from":"0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f", "to":"0x67EbBA731DCd5b763F5699650920a637eDbBEb93", "data":"0xa9059cbb00000000000000000000000078a415a367057d89598d1ea670819428d7417b99000000000000000000000000000000000000000000000000000000000000007b"}],"id":1}' -H "Content-Type: application/json" http://localhost:8545
 
-{"jsonrpc":"2.0","id":1,"result":"0x5208"}
+{"jsonrpc":"2.0","id":1,"result":"0xf94c"}
 
 ```
 
-- eth_getBlockByHash 获取区块的相关接口，需要进一步验证数据正确性
+- eth_getBlockByHash
 ```
-curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0xF87F437A0C322EBD6A9F42FF2AFBF64C32D274A8C3A8606EE148E1BBA75B18BA", false],"id":1}'
+{"jsonrpc":"2.0","id":1,"result":{"difficulty":"0x0","extraData":"0x","gasLimit":"0x76c0","gasUsed":"0x5498","hash":"0x07dd46d62f6a5e97290381a2f40c1ac201d4dcfa71d9ba7811ec2db1cb1872ac","logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000","miner":"0xd63d14331b012d2e4a7ca104d56a9b13fdf5b8ef","mixHash":"0x0000000000000000000000000000000000000000000000000000000000000000","nonce":"0x0000000000000000","number":"0x8fc61d","parentHash":"0x56039a3a63b049ef5c841c335dac8a3543af901fdb8f5b7e08af99868b996fed","receiptsRoot":"0x80f52b3bf835875d38c17e299ab46ddad86a833b47769c18b1e14c0b6daa9237","sha3Uncles":"0x0000000000000000000000000000000000000000000000000000000000000000","size":"0x435","stateRoot":"0xcebec4f94cea5ac9fa7ed51bd0ebf44f58f96716c07588ecdf2e5b717fb15aac","timestamp":"0x61132684","totalDifficulty":"0x0","transactions":["0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e"],"transactionsRoot":"0xe4df3b4f90ae951e2bb013aa706ef2c6e5e4997b448d4b3ee74bb5202358bdf7","uncles":[]}}
 
 {
 	"jsonrpc": "2.0",
@@ -387,23 +386,23 @@ curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"
 	"result": {
 		"difficulty": "0x0",
 		"extraData": "0x",
-		"gasLimit": "0x0",
-		"gasUsed": "0x0",
-		"hash": "0xe3b48197175c99dc148a461f5da4e5ba66d0680b40d402b7c0c5e700d755d89b",
+		"gasLimit": "0x76c0",
+		"gasUsed": "0x5498",
+		"hash": "0x07dd46d62f6a5e97290381a2f40c1ac201d4dcfa71d9ba7811ec2db1cb1872ac",
 		"logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-		"miner": "0xf7e0594092791b98c5999ef4f5b15ccd61a8e70b",
+		"miner": "0xd63d14331b012d2e4a7ca104d56a9b13fdf5b8ef",
 		"mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
 		"nonce": "0x0000000000000000",
-		"number": "0x3",
-		"parentHash": "0x10905d09a70cb08bb462cca86cf3a369b9bd653461407692957129de55ea1b0b",
-		"receiptsRoot": "0xf87f437a0c322ebd6a9f42ff2afbf64c32d274a8c3a8606ee148e1bba75b18ba",
+		"number": "0x8fc61d",
+		"parentHash": "0x56039a3a63b049ef5c841c335dac8a3543af901fdb8f5b7e08af99868b996fed",
+		"receiptsRoot": "0x80f52b3bf835875d38c17e299ab46ddad86a833b47769c18b1e14c0b6daa9237",
 		"sha3Uncles": "0x0000000000000000000000000000000000000000000000000000000000000000",
-		"size": "0x317",
-		"stateRoot": "0x2ebc9045bc16c2934d19d34f11eb8ff6a8e77fd0ef4bb4c2f0a2090f4490b933",
-		"timestamp": "0x60b19957",
+		"size": "0x435",
+		"stateRoot": "0xcebec4f94cea5ac9fa7ed51bd0ebf44f58f96716c07588ecdf2e5b717fb15aac",
+		"timestamp": "0x61132684",
 		"totalDifficulty": "0x0",
-		"transactions": ["0xcdb18a85ef2da4e7f1f2732ab7f375c11635727d87d5eec4a32309b88990db6b"],
-		"transactionsRoot": "0xa7760637328b729a3ec2987e118a6d2d3b1b6b9452a5346fd0dc9359ac680d50",
+		"transactions": ["0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e"],
+		"transactionsRoot": "0xe4df3b4f90ae951e2bb013aa706ef2c6e5e4997b448d4b3ee74bb5202358bdf7",
 		"uncles": []
 	}
 }
@@ -411,28 +410,71 @@ curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"
 
 - eth_getBlockByNumber
 ```
-curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data  '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x3", true],"id":1}'
-```
-
-- eth_getTransactionByHash 获取交易相关的接口，需要进一步验证数据正确性，包括普通交易、合约交易、批量交易
-```
-curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xcdb18a85ef2da4e7f1f2732ab7f375c11635727d87d5eec4a32309b88990db6b"],"id":1}'
+curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data  '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x8fc61d", true],"id":1}'
 
 {
 	"jsonrpc": "2.0",
 	"id": 1,
 	"result": {
-		"blockHash": "0xf87f437a0c322ebd6a9f42ff2afbf64c32d274a8c3a8606ee148e1bba75b18ba",
-		"blockNumber": "0x3",
+		"difficulty": "0x0",
+		"extraData": "0x",
+		"gasLimit": "0x76c0",
+		"gasUsed": "0x5498",
+		"hash": "0x07dd46d62f6a5e97290381a2f40c1ac201d4dcfa71d9ba7811ec2db1cb1872ac",
+		"logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+		"miner": "0xd63d14331b012d2e4a7ca104d56a9b13fdf5b8ef",
+		"mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+		"nonce": "0x0000000000000000",
+		"number": "0x8fc61d",
+		"parentHash": "0x56039a3a63b049ef5c841c335dac8a3543af901fdb8f5b7e08af99868b996fed",
+		"receiptsRoot": "0x80f52b3bf835875d38c17e299ab46ddad86a833b47769c18b1e14c0b6daa9237",
+		"sha3Uncles": "0x0000000000000000000000000000000000000000000000000000000000000000",
+		"size": "0x435",
+		"stateRoot": "0xcebec4f94cea5ac9fa7ed51bd0ebf44f58f96716c07588ecdf2e5b717fb15aac",
+		"timestamp": "0x61132684",
+		"totalDifficulty": "0x0",
+		"transactions": [{
+			"blockHash": "0x80f52b3bf835875d38c17e299ab46ddad86a833b47769c18b1e14c0b6daa9237",
+			"blockNumber": "0x8fc61d",
+			"from": "0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f",
+			"gas": "0x76c0",
+			"gasPrice": "0xe8d4a51000",
+			"hash": "0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e",
+			"input": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+			"nonce": "0x9323",
+			"to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
+			"transactionIndex": "0x0",
+			"value": "0x2540be400",
+			"type": "0x0",
+			"v": "0x0",
+			"r": "0x0",
+			"s": "0x0"
+		}],
+		"transactionsRoot": "0xe4df3b4f90ae951e2bb013aa706ef2c6e5e4997b448d4b3ee74bb5202358bdf7",
+		"uncles": []
+	}
+}
+```
+
+- eth_getTransactionByHash
+```
+curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e"],"id":1}'
+
+{
+	"jsonrpc": "2.0",
+	"id": 1,
+	"result": {
+		"blockHash": "0x80f52b3bf835875d38c17e299ab46ddad86a833b47769c18b1e14c0b6daa9237",
+		"blockNumber": "0x8fc61d",
 		"from": "0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f",
-		"gas": "0x5208",
-		"gasPrice": "0x1",
-		"hash": "0xcdb18a85ef2da4e7f1f2732ab7f375c11635727d87d5eec4a32309b88990db6b",
-		"input": "0x",
-		"nonce": "0x0",
-		"to": "0xb944ac8c6e20475ca528854c29350df7daf9d1a5",
+		"gas": "0x76c0",
+		"gasPrice": "0xe8d4a51000",
+		"hash": "0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e",
+		"input": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+		"nonce": "0x9323",
+		"to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
 		"transactionIndex": "0x0",
-		"value": "0x1",
+		"value": "0x2540be400",
 		"type": "0x0",
 		"v": "0x0",
 		"r": "0x0",
@@ -441,36 +483,79 @@ curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"
 }
 ```
 
-- eth_getTransactionByBlockHashAndIndex 未通过 索引是从0开始的，现在没有取到数据
+- eth_getTransactionByBlockHashAndIndex
 ```
-curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xcdb18a85ef2da4e7f1f2732ab7f375c11635727d87d5eec4a32309b88990db6b", "0x0"],"id":1}'
+curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0x80F52B3BF835875D38C17E299AB46DDAD86A833B47769C18B1E14C0B6DAA9237", "0x0"],"id":1}'
 
-{"jsonrpc":"2.0","id":1,"result":null}
-```
-
-- eth_getTransactionByBlockNumberAndIndex 同上，未测试
-```
-```
-
-- eth_getTransactionReceipt 入参是交易hash，需进一步验证数据正确性
-```
- curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data  '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xcdb18a85ef2da4e7f1f2732ab7f375c11635727d87d5eec4a32309b8899
-0db6b"],"id":1}'
 {
 	"jsonrpc": "2.0",
 	"id": 1,
 	"result": {
-		"blockHash": "0xf87f437a0c322ebd6a9f42ff2afbf64c32d274a8c3a8606ee148e1bba75b18ba",
-		"blockNumber": "0x3",
-		"contractAddress": "0xb944ac8c6e20475ca528854c29350df7daf9d1a5",
+		"blockHash": "0x80f52b3bf835875d38c17e299ab46ddad86a833b47769c18b1e14c0b6daa9237",
+		"blockNumber": "0x8fc61d",
+		"from": "0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f",
+		"gas": "0x76c0",
+		"gasPrice": "0xe8d4a51000",
+		"hash": "0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e",
+		"input": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+		"nonce": "0x9323",
+		"to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
+		"transactionIndex": "0x0",
+		"value": "0x2540be400",
+		"type": "0x0",
+		"v": "0x0",
+		"r": "0x0",
+		"s": "0x0"
+	}
+}
+```
+
+- eth_getTransactionByBlockNumberAndIndex
+```
+curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["0x8fc61d", "0x0"],"id":1}'
+
+{
+	"jsonrpc": "2.0",
+	"id": 1,
+	"result": {
+		"blockHash": "0x80f52b3bf835875d38c17e299ab46ddad86a833b47769c18b1e14c0b6daa9237",
+		"blockNumber": "0x8fc61d",
+		"from": "0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f",
+		"gas": "0x76c0",
+		"gasPrice": "0xe8d4a51000",
+		"hash": "0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e",
+		"input": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+		"nonce": "0x9323",
+		"to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
+		"transactionIndex": "0x0",
+		"value": "0x2540be400",
+		"type": "0x0",
+		"v": "0x0",
+		"r": "0x0",
+		"s": "0x0"
+	}
+}
+```
+
+- eth_getTransactionReceipt
+```
+curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data  '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e"],"id":1}'
+
+{
+	"jsonrpc": "2.0",
+	"id": 1,
+	"result": {
+		"blockHash": "0x80f52b3bf835875d38c17e299ab46ddad86a833b47769c18b1e14c0b6daa9237",
+		"blockNumber": "0x8fc61d",
+		"contractAddress": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
 		"cumulativeGasUsed": "0x0",
 		"from": "0x0f508f143e77b39f8e20dd9d2c1e515f0f527d9f",
-		"gasUsed": "0x0",
+		"gasUsed": "0x5498",
 		"logs": [],
 		"logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
 		"root": "0x0000000000000000000000000000000000000000000000000000000000000000",
-		"to": "0xb944ac8c6e20475ca528854c29350df7daf9d1a5",
-		"transactionHash": "0xcdb18a85ef2da4e7f1f2732ab7f375c11635727d87d5eec4a32309b88990db6b",
+		"to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
+		"transactionHash": "0x5c26f679798c5ab5badb25f556aa6be5e7e2c8f4cf11e7cc96718cab8d787a8e",
 		"transactionIndex": "0x0",
 		"type": "0x0"
 	}
@@ -534,7 +619,7 @@ curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"
 ```
 
 - eth_getFilterLogs
-要求filter必须是log类的filter，Block和Tx的filter不适用，因此只能使用eth_newFilter创建。
+  要求filter必须是log类的filter，Block和Tx的filter不适用，因此只能使用eth_newFilter创建。
 ```
 curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0xeabc5ca1d427f80061a526cf510b63e"],"id":74}'
 ```
@@ -574,9 +659,9 @@ DB操作不影响stateDB
 ### personal类
 - personal_deriveAccount
 ```
-curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data "{\"method\":\"personal_deriveAccount\",\"params\":[\"http://wolot.io\",\"m/44'/60'/0'/0/0\",true],\"id\":1,\"jsonrpc\":\"2.0\"}"
+curl -X POST -H "Content-Type:application/json" http://localhost:8545 --data "{\"method\":\"personal_deriveAccount\",\"params\":[\"keystore:\/\/\/app\/mondo\/blockchain\/keystore\/UTC--2021-06-11T06-57-36.499816000Z--0f508f143e77b39f8e20dd9d2c1e515f0f527d9f\",\"m/44'/60'/0'/0/0\",true],\"id\":1,\"jsonrpc\":\"2.0\"}"
 
-{"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"unknown wallet"}}
+{"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"not supported"}}
 ```
 
 - personal_ecRecover

@@ -13,6 +13,13 @@ Mondo主网和测试网络信息如下
 | testnet | https://testnet-web3.wolot.io | 8724    | 8724       | https://testnet-explorer.wolot.io | https://testnet-explorer.wolot.io |
 | mainnet | https://web3.wolot.io         | 8723    | 8723       | https://www.olo.network           | N/A                               |
 
+## HD Wallet
+BIP44 Registered [slip-0044.md](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+
+| index |    hexa    | symbol |    coin     |
+| ----- | ---------- | ------ | ----------- |
+| 479   | 0x800001df | OLO    | Tool Global |
+
 ## 文档
 - [安装部署](docs/install.md)
 - [命令行cmdline](docs/CMDLINE.md)
