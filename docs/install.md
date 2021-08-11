@@ -86,6 +86,7 @@
 p2p.persistent_peers = "882d546b78fd5969de05ce324db7ed175bd6077d@18.139.250.111:26656,5d4a27ddd0e47f3814543c38048758d62a03931f@18.140.180.203:26656,24984b84b6e07f8eb1b8d207a146b1220ba229c1@13.228.188.50:26656,9c7b698a22c4652d7a277e54a22d53f261bc76cf@18.138.87.101:26656"
 consensus.create_empty_blocks_interval = 60s
 ```
+- 防火墙打开tcp 26656端口
 - 启动 `nohup ./mondod --home=.mondo node &`，查询出块情况`tail -f nohup.out`
 
 ## 升级部署
@@ -112,7 +113,7 @@ dev = true # 开发模式
 metrics = true # prometheus 监控
 chainId = "8723" # 链id，mainnet：8723 testnet：8724
 versions = [3] # 解析协议版本
-startHeight = 1 # 开始解析区块高度 $INITHEIGHT
+startHeight = $INITHEIGHT # 开始解析区块高度 $INITHEIGHT
 tgsBaseURL = "https://services.wolot.io" # 获取官方代币配置的接口
 
 [limiter] # 合约查询限流，合约查询需要执行evm，性能损耗大，可能影响节点稳定
