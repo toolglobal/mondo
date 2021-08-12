@@ -10,8 +10,8 @@ Mondo主网和测试网络信息如下
 
 |  name   |         web3 provider         | chainid | network id |             explorer              |              faucet               |
 | ------- | ----------------------------- | ------- | ---------- | --------------------------------- | --------------------------------- |
+| mainnet | https://mainnet-web3.wolot.io | 8723    | 8723       | https://www.olo.network           | N/A                               |
 | testnet | https://testnet-web3.wolot.io | 8724    | 8724       | https://testnet-explorer.wolot.io | https://testnet-explorer.wolot.io |
-| mainnet | https://web3.wolot.io         | 8723    | 8723       | https://www.olo.network           | N/A                               |
 
 ## HD Wallet
 BIP44 Registered [slip-0044.md](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
