@@ -99,7 +99,7 @@ consensus.create_empty_blocks_interval = 60s
 - 下载程序，更新mondo为mondod
 - 清除旧数据:`./mondod --home=.mondo unsafe_reset_all`
 - 删除无用日志和文件，log目录和nohup.out
-- 初始化应用配置 `./mondod --home=.mondo app init`，修改ParamContract为`0xFe04B392AF295A18a17e3b43eD6d23EC7245501D`
+- 初始化应用配置 `./mondod --home=.mondo app init`，修改.mondo/config/app.toml中ParamContract为`0xFe04B392AF295A18a17e3b43eD6d23EC7245501D`
 - 替换.mondo/config/genesis.json
 - 导入statedb `./mondod --home=.mondo app state import genesis_state.v5.json`
 - 启动 `nohup ./mondod --home=.mondo node &`，查询出块情况`tail -f nohup.out`
