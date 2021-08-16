@@ -117,7 +117,7 @@ dev = true # 开发模式
 metrics = true # prometheus 监控
 chainId = "8723" # 链id，mainnet：8723 testnet：8724
 versions = [3] # 解析协议版本
-startHeight = 6890462 # 开始解析区块高度 $INITHEIGHT
+startHeight = 6890540 # 开始解析区块高度 $INITHEIGHT
 tgsBaseURL = "https://services.wolot.io" # 获取官方代币配置的接口
 
 [limiter] # 合约查询限流，合约查询需要执行evm，性能损耗大，可能影响节点稳定
