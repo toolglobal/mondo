@@ -1,6 +1,8 @@
 # Mondo
 
-Mondo基于tendermint和ethereum开发，共识机制为PBFT+DPos，有自己独立的DPos权益、批量交易、链治理等特性。Mondo提供兼容以太坊evm智能合约虚拟机，支持solidity 0.8.*；Mondo提供类以太坊的web3 provider JSON RPC接口，支持以太坊的钱包、DAPP均可无缝使用Mondo网络，JSON RPC支持ethereum London Fork。
+Mondo基于tendermint和ethereum开发，共识机制为PBFT+DPos，有自己独立的DPos权益、批量交易、链治理等特性。
+
+Mondo提供兼容以太坊evm智能合约虚拟机，支持solidity 0.8.*；Mondo提供类以太坊的web3 provider JSON RPC接口，支持以太坊的钱包、DAPP均可无缝使用Mondo网络，JSON RPC不支持ethereum London Fork。
 
 ## 架构图
 ![banner](statics/mondo-architecture.v5.svg)

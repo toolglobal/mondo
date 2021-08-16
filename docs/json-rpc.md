@@ -4,6 +4,11 @@
 - `https://eth.wiki/json-rpc/API`
 - `https://etclabscore.github.io/core-geth/JSON-RPC-API/modules/personal`
 
+## 特别说明
+- Mondo原生资产OLO的小数位为8位，为了兼容web3 provider JSON RPC，本文档接口交互时OLO采用18位小数，包括转账、交易记录、gasPrice等，不包括WOLO代币。
+- JSON RPC中OLO 第9-18位小数将被忽略
+- 原API接口交互时仍然采用8位小数
+
 ## 交易类型支持
 只支持ethereum的LegacyTxType类型交易，不支持AccessListTxType和DynamicFeeTxType类型交易。
 
