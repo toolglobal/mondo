@@ -1,18 +1,37 @@
 # Mondo
-Mondo是基于tendermint框架开发的链，移植以太坊EVM智能合约虚拟机，有自己独立的DPos权益、批量交易、链治理等特性。
 
-![banner](statics/mondo-architecture.svg)
+Mondo基于tendermint和ethereum开发，共识机制为PBFT+DPos，有自己独立的DPos权益、批量交易、链治理等特性。Mondo提供兼容以太坊evm智能合约虚拟机，支持solidity 0.8.*；Mondo提供类以太坊的web3 provider JSON RPC接口，支持以太坊的钱包、DAPP均可无缝使用Mondo网络，JSON RPC支持ethereum London Fork。
 
-## 安装
-[mondo v4全新部署与升级.md](https://github.com/wolot/mondo/blob/master/mondo%20v4%E5%85%A8%E6%96%B0%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%8D%87%E7%BA%A7.md)
+## 架构图
+![banner](statics/mondo-architecture.v5.svg)
 
-## 命令行
-[mondo 全节点操作手册](https://github.com/wolot/mondo/blob/master/%E5%91%BD%E4%BB%A4%E8%A1%8C.md)
+## 网络
+Mondo主网和测试网络信息如下
 
-## API
-[API文档.md](https://github.com/wolot/api/blob/master/docs.md)
+|  name   |         web3 provider         | chainid | network id |             explorer              |              faucet               |
+| ------- | ----------------------------- | ------- | ---------- | --------------------------------- | --------------------------------- |
+| mainnet | https://mainnet-web3.wolot.io | 8723    | 8723       | https://www.olo.network           | N/A                               |
+| testnet | https://testnet-web3.wolot.io | 8724    | 8724       | https://testnet-explorer.wolot.io | https://testnet-explorer.wolot.io |
+
+## HD Wallet
+BIP44 Registered [slip-0044.md](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+
+| index |    hexa    | symbol |    coin     |
+| ----- | ---------- | ------ | ----------- |
+| 479   | 0x800001df | OLO    | Tool Global |
+
+## 文档
+- [安装部署](docs/install.md)
+- [命令行cmdline](docs/CMDLINE.md)
+- [web3 provider](docs/json-rpc.md)
+
+## REST API [不再维护]
+- [API文档.md](https://github.com/toolglobal/api/blob/master/docs.md)
 
 ## SDK
-- https://github.com/wolot/gosdk
-- https://github.com/wolot/javasdk
-- https://github.com/wolot/jssdk 开发中
+可以使用ethereum的sdk连接Mondo的web3 provider。
+
+- https://github.com/toolglobal/gosdk
+- https://github.com/toolglobal/ethrpc
+- https://github.com/toolglobal/javasdk
+- https://github.com/toolglobal/jssdk 开发中
