@@ -5,7 +5,7 @@
 |    参数名称    |                   参数值                    | 备注 |
 | ------------- | ------------------------------------------ | ---- |
 | ParamContract | 0xFe04B392AF295A18a17e3b43eD6d23EC7245501D |      |
-| INITHEIGHT    | N/A                                        |      |
+| INITHEIGHT    | 6890462                                        |      |
 | CHAINID       | 8723                                       |      |
 
 - 创世文件 genesis.json
@@ -13,7 +13,7 @@
 {
   "genesis_time": "2018-08-27T00:00:00.000000000Z",
   "chain_id": "MondoV5-8723",
-  "initial_height": "$INITHEIGHT",
+  "initial_height": "6890462",
   "consensus_params": {
     "block": {
       "max_bytes": "22020096",
@@ -73,6 +73,10 @@
   "app_hash": ""
 }
 ```
+
+## 程序下载
+`https://olo.ibdt.tech/static/mondo.v5.tar.gz`
+
 ## 全新部署
 适用于新部署节点和非共识节点（以前未参与TBP计划）的节点升级。
 - 停止mondo程序
@@ -95,7 +99,7 @@ consensus.create_empty_blocks_interval = 60s
 - 下载程序，更新mondo为mondod
 - 清除旧数据:`./mondod --home=.mondo unsafe_reset_all`
 - 删除无用日志和文件，log目录和nohup.out
-- 初始化应用配置 `./mondod --home=.mondo app init`，修改ParamContract为 $ParamContract
+- 初始化应用配置 `./mondod --home=.mondo app init`，修改ParamContract为`0xFe04B392AF295A18a17e3b43eD6d23EC7245501D`
 - 替换.mondo/config/genesis.json
 - 导入statedb `./mondod --home=.mondo app state import genesis_state.v5.json`
 - 启动 `nohup ./mondod --home=.mondo node &`，查询出块情况`tail -f nohup.out`
@@ -103,7 +107,7 @@ consensus.create_empty_blocks_interval = 60s
 ## 部署、升级API程序[可选]
 API程序解析区块数据生成可视化的区块、交易、转账记录，并使用sqlite保存，方便查询，此功能为可选。最新的mondod提供兼容eth的web3 provider JSON RPC，API程序不再维护。
 
-- 替换api程序 https://github.com/toolglobal/api/releases/download/v1.4.0/build.tar.gz
+- 替换api程序 
 - 修改config.toml配置
 
 ```
@@ -113,7 +117,7 @@ dev = true # 开发模式
 metrics = true # prometheus 监控
 chainId = "8723" # 链id，mainnet：8723 testnet：8724
 versions = [3] # 解析协议版本
-startHeight = $INITHEIGHT # 开始解析区块高度 $INITHEIGHT
+startHeight = 6890462 # 开始解析区块高度 $INITHEIGHT
 tgsBaseURL = "https://services.wolot.io" # 获取官方代币配置的接口
 
 [limiter] # 合约查询限流，合约查询需要执行evm，性能损耗大，可能影响节点稳定
