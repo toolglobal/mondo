@@ -5,15 +5,15 @@
 |    参数名称    |                   参数值                    | 备注 |
 | ------------- | ------------------------------------------ | ---- |
 | ParamContract | 0xFe04B392AF295A18a17e3b43eD6d23EC7245501D |      |
-| INITHEIGHT    | 6890540                                        |      |
+| INITHEIGHT    | 6891289                                        |      |
 | CHAINID       | 8723                                       |      |
 
 - 创世文件 genesis.json
 ```
 {
   "genesis_time": "2018-08-27T00:00:00.000000000Z",
-  "chain_id": "MondoV5-8723",
-  "initial_height": "6890540",
+  "chain_id": "MondoV52-8723",
+  "initial_height": "6891289",
   "consensus_params": {
     "block": {
       "max_bytes": "22020096",
@@ -75,7 +75,7 @@
 ```
 
 ## 程序下载
-`https://olo.ibdt.tech/static/mondo.v5.1.tar.gz`
+`https://olo.ibdt.tech/static/mondod.v5.2.tgz`
 
 ## 全新部署
 适用于新部署节点和非共识节点（以前未参与TBP计划）的节点升级。
@@ -84,7 +84,7 @@
 - 初始化底层配置 `./mondod --home=.mondo init`
 - 初始化应用配置 `./mondod --home=.mondo app init`，修改.mondo/config/app.toml中ParamContract为`0xFe04B392AF295A18a17e3b43eD6d23EC7245501D`
 - 覆盖.mondo/config/genesis.json
-- 导入statedb `./mondod --home=.mondo app state import genesis_state.v5.1.json`
+- 导入statedb `./mondod --home=.mondo app state import genesis_state.v5.2.json`
 - 修改.mondo/config/config.toml
 ```toml
 p2p.persistent_peers = "882d546b78fd5969de05ce324db7ed175bd6077d@18.139.250.111:26656,5d4a27ddd0e47f3814543c38048758d62a03931f@18.140.180.203:26656,24984b84b6e07f8eb1b8d207a146b1220ba229c1@13.228.188.50:26656,9c7b698a22c4652d7a277e54a22d53f261bc76cf@18.138.87.101:26656"
@@ -101,7 +101,7 @@ consensus.create_empty_blocks_interval = 60s
 - 删除无用日志和文件，log目录和nohup.out
 - 初始化应用配置 `./mondod --home=.mondo app init`，修改.mondo/config/app.toml中ParamContract为`0xFe04B392AF295A18a17e3b43eD6d23EC7245501D`
 - 替换.mondo/config/genesis.json
-- 导入statedb `./mondod --home=.mondo app state import genesis_state.v5.1.json`
+- 导入statedb `./mondod --home=.mondo app state import genesis_state.v5.2.json`
 - 启动 `nohup ./mondod --home=.mondo node &`，查询出块情况`tail -f nohup.out`
 
 ## 部署、升级API程序[可选]
@@ -117,7 +117,7 @@ dev = true # 开发模式
 metrics = true # prometheus 监控
 chainId = "8723" # 链id，mainnet：8723 testnet：8724
 versions = [3] # 解析协议版本
-startHeight = 6890540 # 开始解析区块高度 $INITHEIGHT
+startHeight = 6891289 # 开始解析区块高度 $INITHEIGHT
 tgsBaseURL = "https://services.wolot.io" # 获取官方代币配置的接口
 
 [limiter] # 合约查询限流，合约查询需要执行evm，性能损耗大，可能影响节点稳定
