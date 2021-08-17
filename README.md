@@ -7,6 +7,9 @@ Mondo提供兼容以太坊evm智能合约虚拟机，支持solidity 0.8.*；Mond
 ## 架构图
 ![banner](statics/mondo-architecture.v5.svg)
 
+## EVM version
+`istanbul`
+
 ## 网络
 Mondo主网和测试网络信息如下
 
@@ -25,7 +28,7 @@ BIP44 Registered [slip-0044.md](https://github.com/satoshilabs/slips/blob/master
 ## 文档
 - [安装部署](docs/install.md)
 - [命令行cmdline](docs/CMDLINE.md)
-- [web3 provider](docs/json-rpc.md)
+- [web3 provider JSON RPC](docs/json-rpc.md)
 
 ## REST API [不再维护]
 - [API文档.md](https://github.com/toolglobal/api/blob/master/docs.md)
