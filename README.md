@@ -2,7 +2,7 @@
 
 Mondo基于tendermint和ethereum开发，共识机制为PBFT+DPos，有自己独立的DPos权益、批量交易、链治理等特性。
 
-Mondo提供兼容以太坊evm智能合约虚拟机，支持solidity 0.8.*；Mondo提供类以太坊的web3 provider JSON RPC接口，支持以太坊的钱包、DAPP均可无缝使用Mondo网络，JSON RPC不支持ethereum London Fork。
+Mondo提供兼容以太坊evm智能合约虚拟机，支持solidity 0.8.*；Mondo提供类以太坊的web3 provider JSON RPC接口，支持以太坊的钱包、DAPP均可无缝使用Mondo网络。
 
 ## 架构图
 ![banner](statics/mondo-architecture.v5.svg)
@@ -36,7 +36,9 @@ BIP44 Registered [slip-0044.md](https://github.com/satoshilabs/slips/blob/master
 ## SDK
 可以使用ethereum的sdk连接Mondo的web3 provider。
 
-- https://github.com/toolglobal/gosdk
-- https://github.com/toolglobal/ethrpc
-- https://github.com/toolglobal/javasdk
-- https://github.com/toolglobal/jssdk 开发中
+- https://github.com/web3j/web3j
+- https://github.com/ethereum/web3.js
+- https://github.com/ethereum/go-ethereum
+- https://github.com/axengine/ethcli (golang JSON RPC)
+- https://github.com/toolglobal/gosdk (golang RESTful)
+- https://github.com/toolglobal/jssdk OLO Wallet SDK
