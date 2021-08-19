@@ -75,7 +75,9 @@
 ```
 
 ## 程序下载
-`https://olo.ibdt.tech/static/mondod.v5.2.tgz`
+- genesis_state `https://olo.ibdt.tech/static/release/genesis_state.v5.2.json.tar.gz` md5sum `53f050569b22f95a5b0f4c0d13050bf1`
+- mondod `https://olo.ibdt.tech/static/release/mondod.v5.2.1.tgz` md5sum `c6c70a3a0f3384d10405e6c6c4ab9426`
+- REST api `https://olo.ibdt.tech/static/release/api.v1.5.0.tar.gz` md5sum `ac725ca5f51a82e6656e8812b0856188`
 
 ## 全新部署
 适用于新部署节点和非共识节点（以前未参与TBP计划）的节点升级。
