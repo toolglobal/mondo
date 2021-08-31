@@ -13,147 +13,147 @@
 只支持ethereum的LegacyTxType类型交易，不支持AccessListTxType和DynamicFeeTxType类型交易。
 
 ## JSON-RPC Methods
-|                 Method                 | Namespace | Implemented |        Notes         |
-| ------------------------------------- | -------- | ---------- | ------------------- |
-| `web3_clientVersion`                    | Web3      | ✔          |                     |
-| `web3_sha3`                            | Web3      | ✔          |                     |
-| `net_version`                          | Net       | ✔          |                     |
-| `net_peerCount`                         | Net       | ✔          | mock，非真实P2P连接数  |
-| `net_listening`                         | Net       | ✔          |                     |
-| `eth_protocolVersion`                   | Eth       |            |                     |
-| `eth_syncing`                          | Eth       |            |                     |
-| `eth_gasPrice`                         | Eth       | ✔          |                     |
-| `eth_accounts`                         | Eth       | ✔          |                     |
-| `eth_blockNumber`                       | Eth       | ✔          |                     |
-| `eth_getBalance`                        | Eth       | ✔          |                     |
-| `eth_getStorageAt`                      | Eth       | ✔          |                     |
-| `eth_getTransactionCount`                | Eth       | ✔          |                     |
-| `eth_getBlockTransactionCountByNumber`    | Eth       | ✔          |                     |
-| `eth_getBlockTransactionCountByHash`      | Eth       | ✔          |                     |
-| `eth_getCode`                          | Eth       | ✔          |                     |
-| `eth_sign`                             | Eth       | ✔          |                     |
-| `eth_sendTransaction`                   | Eth       | ✔          |                     |
-| `eth_sendRawTransaction`                 | Eth       | ✔          |                     |
-| `eth_call`                             | Eth       | ✔          |                     |
-| `eth_estimateGas`                       | Eth       | ✔          |                     |
-| `eth_getBlockByNumber`                  | Eth       | ✔          |                     |
-| `eth_getBlockByHash`                    | Eth       | ✔          |                     |
-| `eth_getTransactionByHash`               | Eth       | ✔          |                     |
-| `eth_getTransactionByBlockHashAndIndex`   | Eth       | ✔          |                     |
-| `eth_getTransactionReceipt`              | Eth       | ✔          |                     |
-| `eth_newFilter`                         | Eth       | ✔          |                     |
-| `eth_newBlockFilter`                    | Eth       | ✔          |                     |
-| `eth_newPendingTransactionFilter`         | Eth       | ✔          |                     |
-| `eth_uninstallFilter`                   | Eth       | ✔          |                     |
-| `eth_getFilterChanges`                  | Eth       | ✔          |                     |
-| `eth_getLogs`                          | Eth       | ✔          |                     |
-| `eth_getTransactionbyBlockNumberAndIndex` | Eth       |             |                     |
-| `eth_getWork`                          | Eth       |             |                     |
-| `eth_submitWork`                        | Eth       |             |                     |
-| `eth_submitHashrate`                    | Eth       |             |                     |
-| `eth_getCompilers`                      | Eth       |             |                     |
-| `eth_compileLLL`                        | Eth       |             |                     |
-| `eth_compileSolidity`                   | Eth       |             |                     |
-| `eth_compileSerpent`                    | Eth       |             |                     |
-| `eth_signTransaction`                   | Eth       | ✔          |                     |
-| `eth_mining`                           | Eth       | N/A         | Not relevant to Mondo |
-| `eth_coinbase`                         | Eth       | N/A         | Not relevant to Mondo |
-| `eth_hashrate`                         | Eth       | N/A         | Not relevant to Mondo |
-| `eth_getUncleCountByBlockHash`           | Eth       | N/A         | Not relevant to Mondo |
-| `eth_getUncleCountByBlockNumber`         | Eth       | N/A         | Not relevant to Mondo |
-| `eth_getUncleByBlockHashAndIndex`         | Eth       | N/A         | Not relevant to Mondo |
-| `eth_getUncleByBlockNumberAndIndex`       | Eth       | N/A         | Not relevant to Mondo |
-| `eth_subscribe`                         | Websocket | ✔          | todo                 |
-| `eth_unsubscribe`                       | Websocket | ✔          | todo                 |
-| `personal_deriveAccount`                 | Personal  | ✔          |                     |
-| `personal_ecRecover`                    | Personal  | ✔          |                     |
-| `personal_importRawKey`                 | Personal  | ✔          |                     |
-| `personal_initializeWallet`              | Personal  | ✔          |                     |
-| `personal_listAccounts`                 | Personal  | ✔          |                     |
-| `personal_listWallets`                  | Personal  | ✔          |                     |
-| `personal_lockAccount`                  | Personal  | ✔          |                     |
-| `personal_newAccount`                   | Personal  | ✔          |                     |
-| `personal_openWallet`                   | Personal  |            |                     |
-| `personal_unlockAccount`                 | Personal  | ✔          |                     |
-| `personal_sendTransaction`               | Personal  | ✔          |                     |
-| `personal_sign`                         | Personal  | ✔          |                     |
-| `personal_signAndSendTransaction`         | Personal  | ✔          |                     |
-| `personal_signTransaction`               | Personal  | ✔          |                     |
-| `personal_unpair`                         | Personal  |            |                     |
-| `db_putString`                         | DB        |             |                     |
-| `db_getString`                         | DB        |             |                     |
-| `db_putHex`                            | DB        |             |                     |
-| `db_getHex`                            | DB        |             |                     |
-| `shh_post`                             | SSH       |             |                     |
-| `shh_version`                          | SSH       |             |                     |
-| `shh_newIdentity`                       | SSH       |             |                     |
-| `shh_hasIdentity`                       | SSH       |             |                     |
-| `shh_newGroup`                         | SSH       |             |                     |
-| `shh_addToGroup`                        | SSH       |             |                     |
-| `shh_newFilter`                         | SSH       |             |                     |
-| `shh_uninstallFilter`                   | SSH       |             |                     |
-| `shh_getFilterChanges`                  | SSH       |             |                     |
-| `shh_getMessages`                       | SSH       |             |                     |
-| `admin_addPeer`                         | Admin     |             |                     |
-| `admin_datadir`                         | Admin     |             |                     |
-| `admin_nodeInfo`                        | Admin     |             |                     |
-| `admin_peers`                          | Admin     |             |                     |
-| `admin_startRPC`                        | Admin     |             |                     |
-| `admin_startWS`                         | Admin     |             |                     |
-| `admin_stopRPC`                         | Admin     |             |                     |
-| `admin_stopWS`                         | Admin     |             |                     |
-| `clique_getSnapshot`                    | Clique    |             |                     |
-| `clique_getSnapshotAtHash`               | Clique    |             |                     |
-| `clique_getSigners`                     | Clique    |             |                     |
-| `clique_proposals`                      | Clique    |             |                     |
-| `clique_propose`                        | Clique    |             |                     |
-| `clique_discard`                        | Clique    |             |                     |
-| `clique_status`                         | Clique    |             |                     |
-| `debug_backtraceAt`                     | Debug     |             |                     |
-| `debug_blockProfile`                    | Debug     |             |                     |
-| `debug_cpuProfile`                      | Debug     |             |                     |
-| `debug_dumpBlock`                       | Debug     |             |                     |
-| `debug_gcStats`                         | Debug     |             |                     |
-| `debug_getBlockRlp`                     | Debug     |             |                     |
-| `debug_goTrace`                         | Debug     |             |                     |
-| `debug_memStats`                        | Debug     |             |                     |
-| `debug_seedHash`                        | Debug     |             |                     |
-| `debug_setHead`                         | Debug     |             |                     |
-| `debug_setBlockProfileRate`              | Debug     |             |                     |
-| `debug_stacks`                         | Debug     |             |                     |
-| `debug_startCPUProfile`                 | Debug     |             |                     |
-| `debug_startGoTrace`                    | Debug     |             |                     |
-| `debug_stopCPUProfile`                  | Debug     |             |                     |
-| `debug_stopGoTrace`                     | Debug     |             |                     |
-| `debug_traceBlock`                      | Debug     |             |                     |
-| `debug_traceBlockByNumber`               | Debug     |             |                     |
-| `debug_traceBlockByHash`                 | Debug     |             |                     |
-| `debug_traceBlockFromFile`               | Debug     |             |                     |
-| `debug_standardTraceBlockToFile`         | Debug     |             |                     |
-| `debug_standardTraceBadBlockToFile`       | Debug     |             |                     |
-| `debug_traceTransaction`                 | Debug     |             |                     |
-| `debug_verbosity`                       | Debug     |             |                     |
-| `debug_vmodule`                         | Debug     |             |                     |
-| `debug_writeBlockProfile`                | Debug     |             |                     |
-| `debug_writeMemProfile`                 | Debug     |             |                     |
-| `les_serverInfo`                        | Les       |             |                     |
-| `les_clientInfo`                        | Les       |             |                     |
-| `les_priorityClientInfo`                 | Les       |             |                     |
-| `les_addBalance`                        | Les       |             |                     |
-| `les_setClientParams`                   | Les       |             |                     |
-| `les_setDefaultParams`                  | Les       |             |                     |
-| `les_latestCheckpoint`                  | Les       |             |                     |
-| `les_getCheckpoint`                     | Les       |             |                     |
-| `les_getCheckpointContractAddress`        | Les       |             |                     |
-| `miner_getHashrate`                     | Miner     |             |                     |
-| `miner_setExtra`                        | Miner     |             |                     |
-| `miner_setGasPrice`                     | Miner     |             |                     |
-| `miner_start`                          | Miner     |             |                     |
-| `miner_stop`                           | Miner     |             |                     |
-| `miner_setEtherbase`                    | Miner     |             |                     |
-| `txpool_content`                        | TXPool    |             |                     |
-| `txpool_inspect`                        | TXPool    |             |                     |
-| `txpool_status`                         | TXPool    |             |                     |
+|                  Method                   | Namespace | Implemented |          Notes           |
+| ----------------------------------------- | --------- | ----------- | ------------------------ |
+| `web3_clientVersion`                      | Web3      | ✔          |                          |
+| `web3_sha3`                               | Web3      | ✔          |                          |
+| `net_version`                             | Net       | ✔          |                          |
+| `net_peerCount`                           | Net       | ✔          | mock，非真实P2P连接数     |
+| `net_listening`                           | Net       | ✔          |                          |
+| `eth_protocolVersion`                     | Eth       |             |                          |
+| `eth_syncing`                             | Eth       |             |                          |
+| `eth_gasPrice`                            | Eth       | ✔          |                          |
+| `eth_accounts`                            | Eth       | ✔          |                          |
+| `eth_blockNumber`                         | Eth       | ✔          |                          |
+| `eth_getBalance`                          | Eth       | ✔          |                          |
+| `eth_getStorageAt`                        | Eth       | ✔          |                          |
+| `eth_getTransactionCount`                 | Eth       | ✔          |                          |
+| `eth_getBlockTransactionCountByNumber`    | Eth       | ✔          |                          |
+| `eth_getBlockTransactionCountByHash`      | Eth       | ✔          |                          |
+| `eth_getCode`                             | Eth       | ✔          |                          |
+| `eth_sign`                                | Eth       | ✔          |                          |
+| `eth_sendTransaction`                     | Eth       | ✔          |                          |
+| `eth_sendRawTransaction`                  | Eth       | ✔          |                          |
+| `eth_call`                                | Eth       | ✔          |                          |
+| `eth_estimateGas`                         | Eth       | ✔          |                          |
+| `eth_getBlockByNumber`                    | Eth       | ✔          | transaction中未返回R/s/v |
+| `eth_getBlockByHash`                      | Eth       | ✔          | transaction中未返回R/s/v |
+| `eth_getTransactionByHash`                | Eth       | ✔          | transaction中未返回R/s/v |
+| `eth_getTransactionByBlockHashAndIndex`   | Eth       | ✔          | transaction中未返回R/s/v |
+| `eth_getTransactionReceipt`               | Eth       | ✔          |                          |
+| `eth_newFilter`                           | Eth       | ✔          |                          |
+| `eth_newBlockFilter`                      | Eth       | ✔          |                          |
+| `eth_newPendingTransactionFilter`         | Eth       | ✔          |                          |
+| `eth_uninstallFilter`                     | Eth       | ✔          |                          |
+| `eth_getFilterChanges`                    | Eth       | ✔          |                          |
+| `eth_getLogs`                             | Eth       | ✔          |                          |
+| `eth_getTransactionbyBlockNumberAndIndex` | Eth       |             |                          |
+| `eth_getWork`                             | Eth       |             |                          |
+| `eth_submitWork`                          | Eth       |             |                          |
+| `eth_submitHashrate`                      | Eth       |             |                          |
+| `eth_getCompilers`                        | Eth       |             |                          |
+| `eth_compileLLL`                          | Eth       |             |                          |
+| `eth_compileSolidity`                     | Eth       |             |                          |
+| `eth_compileSerpent`                      | Eth       |             |                          |
+| `eth_signTransaction`                     | Eth       | ✔          |                          |
+| `eth_mining`                              | Eth       | N/A         | Not relevant to Mondo    |
+| `eth_coinbase`                            | Eth       | N/A         | Not relevant to Mondo    |
+| `eth_hashrate`                            | Eth       | N/A         | Not relevant to Mondo    |
+| `eth_getUncleCountByBlockHash`            | Eth       | N/A         | Not relevant to Mondo    |
+| `eth_getUncleCountByBlockNumber`          | Eth       | N/A         | Not relevant to Mondo    |
+| `eth_getUncleByBlockHashAndIndex`         | Eth       | N/A         | Not relevant to Mondo    |
+| `eth_getUncleByBlockNumberAndIndex`       | Eth       | N/A         | Not relevant to Mondo    |
+| `eth_subscribe`                           | Websocket | ✔          | todo                     |
+| `eth_unsubscribe`                         | Websocket | ✔          | todo                     |
+| `personal_deriveAccount`                  | Personal  | ✔          |                          |
+| `personal_ecRecover`                      | Personal  | ✔          |                          |
+| `personal_importRawKey`                   | Personal  | ✔          |                          |
+| `personal_initializeWallet`               | Personal  | ✔          |                          |
+| `personal_listAccounts`                   | Personal  | ✔          |                          |
+| `personal_listWallets`                    | Personal  | ✔          |                          |
+| `personal_lockAccount`                    | Personal  | ✔          |                          |
+| `personal_newAccount`                     | Personal  | ✔          |                          |
+| `personal_openWallet`                     | Personal  |             |                          |
+| `personal_unlockAccount`                  | Personal  | ✔          |                          |
+| `personal_sendTransaction`                | Personal  | ✔          |                          |
+| `personal_sign`                           | Personal  | ✔          |                          |
+| `personal_signAndSendTransaction`         | Personal  | ✔          |                          |
+| `personal_signTransaction`                | Personal  | ✔          |                          |
+| `personal_unpair`                         | Personal  |             |                          |
+| `db_putString`                            | DB        |             |                          |
+| `db_getString`                            | DB        |             |                          |
+| `db_putHex`                               | DB        |             |                          |
+| `db_getHex`                               | DB        |             |                          |
+| `shh_post`                                | SSH       |             |                          |
+| `shh_version`                             | SSH       |             |                          |
+| `shh_newIdentity`                         | SSH       |             |                          |
+| `shh_hasIdentity`                         | SSH       |             |                          |
+| `shh_newGroup`                            | SSH       |             |                          |
+| `shh_addToGroup`                          | SSH       |             |                          |
+| `shh_newFilter`                           | SSH       |             |                          |
+| `shh_uninstallFilter`                     | SSH       |             |                          |
+| `shh_getFilterChanges`                    | SSH       |             |                          |
+| `shh_getMessages`                         | SSH       |             |                          |
+| `admin_addPeer`                           | Admin     |             |                          |
+| `admin_datadir`                           | Admin     |             |                          |
+| `admin_nodeInfo`                          | Admin     |             |                          |
+| `admin_peers`                             | Admin     |             |                          |
+| `admin_startRPC`                          | Admin     |             |                          |
+| `admin_startWS`                           | Admin     |             |                          |
+| `admin_stopRPC`                           | Admin     |             |                          |
+| `admin_stopWS`                            | Admin     |             |                          |
+| `clique_getSnapshot`                      | Clique    |             |                          |
+| `clique_getSnapshotAtHash`                | Clique    |             |                          |
+| `clique_getSigners`                       | Clique    |             |                          |
+| `clique_proposals`                        | Clique    |             |                          |
+| `clique_propose`                          | Clique    |             |                          |
+| `clique_discard`                          | Clique    |             |                          |
+| `clique_status`                           | Clique    |             |                          |
+| `debug_backtraceAt`                       | Debug     |             |                          |
+| `debug_blockProfile`                      | Debug     |             |                          |
+| `debug_cpuProfile`                        | Debug     |             |                          |
+| `debug_dumpBlock`                         | Debug     |             |                          |
+| `debug_gcStats`                           | Debug     |             |                          |
+| `debug_getBlockRlp`                       | Debug     |             |                          |
+| `debug_goTrace`                           | Debug     |             |                          |
+| `debug_memStats`                          | Debug     |             |                          |
+| `debug_seedHash`                          | Debug     |             |                          |
+| `debug_setHead`                           | Debug     |             |                          |
+| `debug_setBlockProfileRate`               | Debug     |             |                          |
+| `debug_stacks`                            | Debug     |             |                          |
+| `debug_startCPUProfile`                   | Debug     |             |                          |
+| `debug_startGoTrace`                      | Debug     |             |                          |
+| `debug_stopCPUProfile`                    | Debug     |             |                          |
+| `debug_stopGoTrace`                       | Debug     |             |                          |
+| `debug_traceBlock`                        | Debug     |             |                          |
+| `debug_traceBlockByNumber`                | Debug     |             |                          |
+| `debug_traceBlockByHash`                  | Debug     |             |                          |
+| `debug_traceBlockFromFile`                | Debug     |             |                          |
+| `debug_standardTraceBlockToFile`          | Debug     |             |                          |
+| `debug_standardTraceBadBlockToFile`       | Debug     |             |                          |
+| `debug_traceTransaction`                  | Debug     |             |                          |
+| `debug_verbosity`                         | Debug     |             |                          |
+| `debug_vmodule`                           | Debug     |             |                          |
+| `debug_writeBlockProfile`                 | Debug     |             |                          |
+| `debug_writeMemProfile`                   | Debug     |             |                          |
+| `les_serverInfo`                          | Les       |             |                          |
+| `les_clientInfo`                          | Les       |             |                          |
+| `les_priorityClientInfo`                  | Les       |             |                          |
+| `les_addBalance`                          | Les       |             |                          |
+| `les_setClientParams`                     | Les       |             |                          |
+| `les_setDefaultParams`                    | Les       |             |                          |
+| `les_latestCheckpoint`                    | Les       |             |                          |
+| `les_getCheckpoint`                       | Les       |             |                          |
+| `les_getCheckpointContractAddress`        | Les       |             |                          |
+| `miner_getHashrate`                       | Miner     |             |                          |
+| `miner_setExtra`                          | Miner     |             |                          |
+| `miner_setGasPrice`                       | Miner     |             |                          |
+| `miner_start`                             | Miner     |             |                          |
+| `miner_stop`                              | Miner     |             |                          |
+| `miner_setEtherbase`                      | Miner     |             |                          |
+| `txpool_content`                          | TXPool    |             |                          |
+| `txpool_inspect`                          | TXPool    |             |                          |
+| `txpool_status`                           | TXPool    |             |                          |
 
 ## RPC Methods
 
