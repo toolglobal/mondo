@@ -92,7 +92,7 @@ Path of the secret key file: ...\keystore\UTC--2021-07-05T05-57-36.449736800Z--8
 
 #### 导入账户
 ```
-./mondod --home=home account import file1.json # 通过私钥导入账户，file1.json中是账户私钥
+./mondod --home=home account import keyfile # 通过私钥导入账户，keyfile中是账户私钥
 ```
 
 #### 更新账户密码
@@ -104,11 +104,6 @@ Path of the secret key file: ...\keystore\UTC--2021-07-05T05-57-36.449736800Z--8
 ```
 $ ./mondod --home=home account list
 Account #0: {8d2e730c3eb149df47736f37ab6a744601125ff5} keystore://...\keystore\UTC--2021-07-05T05-57-36.449736800Z--8d2e730c3eb149df47736f37ab6a744601125ff5
-```
-
-### 初始化app配置
-```
-./mondod --home=home app init # 生成默认的config/app.toml配置文件
 ```
 
 ### TBP子命令
