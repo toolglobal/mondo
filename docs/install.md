@@ -79,6 +79,13 @@
 - mondod `https://olo.ibdt.tech/static/release/mondod.v5.2.1.tgz` md5sum `c6c70a3a0f3384d10405e6c6c4ab9426`
 - REST api `https://olo.ibdt.tech/static/release/api.v1.5.0.tar.gz` md5sum `ac725ca5f51a82e6656e8812b0856188`
 
+```
+[root@localhost cmd]# ./mondod app version
+build: Tue Aug 31 09:51:39 CST 2021
+commit: f02d5310dea71096a15aba8eb97d4e00bee93f06
+go: go version go1.16 linux/amd6
+```
+
 ## 全新部署
 适用于新部署节点和非共识节点（以前未参与TBP计划）的节点升级。
 - 停止mondo程序
